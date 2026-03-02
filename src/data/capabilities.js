@@ -1,0 +1,22 @@
+export const capabilities = [
+  { id: 'explain', name: 'Explain Complex Concepts', category: 'Learn New Things', description: 'Break down complicated topics', level: 'Novice' },
+  { id: 'summarize', name: 'Summarize Long Texts', category: 'Research & Analyze', description: 'Condense articles into key points', level: 'Novice' },
+  { id: 'translate', name: 'Translate Languages', category: 'Communication', description: 'Convert text between languages', level: 'Novice' },
+  { id: 'generate', name: 'Generate Creative Content', category: 'Creativity', description: 'Write stories, poems, or scripts', level: 'Intermediate' },
+  { id: 'debug', name: 'Debug Code', category: 'Development', description: 'Identify and fix programming errors', level: 'Intermediate' },
+  { id: 'optimize', name: 'Optimize Performance', category: 'Development', description: 'Improve code efficiency', level: 'Advanced' },
+  { id: 'classify', name: 'Classify Data', category: 'Data Science', description: 'Categorize information', level: 'Novice' },
+  { id: 'predict', name: 'Predict Trends', category: 'Data Science', description: 'Forecast future patterns', level: 'Intermediate' },
+  { id: 'visualize', name: 'Visualize Data', category: 'Data Science', description: 'Create charts and graphs', level: 'Novice' },
+  { id: 'recommend', name: 'Recommend Products', category: 'Business', description: 'Suggest items based on preferences', level: 'Intermediate' },
+  { id: 'analyze', name: 'Analyze Sentiment', category: 'Business', description: 'Gauge emotions in text', level: 'Novice' },
+  { id: 'automate', name: 'Automate Tasks', category: 'Productivity', description: 'Streamline repetitive work', level: 'Intermediate' },
+  { id: 'schedule', name: 'Schedule Events', category: 'Productivity', description: 'Plan and organize time', level: 'Novice' },
+  { id: 'teach', name: 'Teach Concepts', category: 'Education', description: 'Explain subjects clearly', level: 'Intermediate' },
+  { id: 'quiz', name: 'Create Quizzes', category: 'Education', description: 'Design interactive tests', level: 'Novice' },
+  { id: 'design', name: 'Design Graphics', category: 'Creativity', description: 'Generate visual art', level: 'Advanced' },
+  { id: 'compose', name: 'Compose Music', category: 'Creativity', description: 'Generate melodies and rhythms', level: 'Advanced' },
+  { id: 'simulate', name: 'Simulate Scenarios', category: 'Research & Analyze', description: 'Model hypothetical situations', level: 'Advanced' },
+  { id: 'secure', name: 'Secure Systems', category: 'Security', description: 'Protect against threats', level: 'Intermediate' },
+  { id: 'monitor', name: 'Monitor Networks', category: 'Security', description: 'Track system activity', level: 'Advanced' }
+];

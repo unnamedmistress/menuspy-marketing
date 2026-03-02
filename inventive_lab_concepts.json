@@ -1,0 +1,60 @@
+{
+  "concepts": [
+    {
+      "name": "Dynamic Role Rotation",
+      "description": "Agents periodically swap roles to prevent stagnation and cross-pollinate ideas",
+      "team_composition": "Fluid roles with overlap zones",
+      "creative_tension": "Mandated perspective shifts",
+      "feedback_loops": "360° peer reviews after rotations",
+      "orchestration": "AI scheduler balances exposure"
+    },
+    {
+      "name": "Antagonistic Pods",
+      "description": "Paired subteams with opposing objectives that must reconcile outputs",
+      "team_composition": "Mirrored pods (e.g. risk-takers vs conservatives)",
+      "creative_tension": "Forced constructive conflict",
+      "feedback_loops": "Weekly synthesis sessions",
+      "orchestration": "Meta-mediator agent"
+    },
+    {
+      "name": "Emergent Swarm",
+      "description": "Minimal ruleset allowing complex behaviors to emerge from simple interactions",
+      "team_composition": "Homogeneous base skillsets",
+      "creative_tension": "Environmental constraints",
+      "feedback_loops": "Continuous fitness scoring",
+      "orchestration": "Evolutionary algorithm"
+    },
+    {
+      "name": "Improvisation Theater",
+      "description": "Agents adopt dramatic roles and improvise solutions in character",
+      "team_composition": "Archetypal personas (e.g. wizard, engineer)",
+      "creative_tension": "Role-driven constraints",
+      "feedback_loops": "Live audience voting",
+      "orchestration": "Game master agent"
+    },
+    {
+      "name": "Parallel Universe",
+      "description": "Multiple versions of same team compete with different rule sets",
+      "team_composition": "Cloned teams with variants",
+      "creative_tension": "Cross-universe tournaments",
+      "feedback_loops": "Convergence detection",
+      "orchestration": "Multiverse observer"
+    }
+  ],
+  "delivery_models": {
+    "Dynamic Role Rotation": "Sprint-based rotation cycles",
+    "Antagonistic Pods": "Duel-then-merge workflow",
+    "Emergent Swarm": "Continuous deployment",
+    "Improvisation Theater": "Live demo events",
+    "Parallel Universe": "Tournament bracket"
+  },
+  "pitch_site": {
+    "structure": [
+      "Challenge statement",
+      "Team architecture diagrams",
+      "Case study simulations",
+      "Performance metrics",
+      "Adoption roadmap"
+    ]
+  }
+}

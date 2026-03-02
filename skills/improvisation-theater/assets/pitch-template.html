@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{CONCEPT_NAME}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, {{PRIMARY_COLOR}} 0%, {{SECONDARY_COLOR}} 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            max-width: 600px;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: {{PRIMARY_COLOR}};
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: #555;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .feature-card h4 {
+            color: {{PRIMARY_COLOR}};
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: #f0f0f0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: {{PRIMARY_COLOR}};
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            filter: brightness(1.1);
+        }
+        
+        .archetype-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #888;
+            font-size: 0.9rem;
+            background: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>{{HEADLINE}}</h1>
+        <p class="tagline">{{TAGLINE}}</p>
+        <div class="archetype-badges">
+            <span class="badge">🧙 Wizard</span>
+            <span class="badge">⚙️ Engineer</span>
+            <span class="badge">🃏 Trickster</span>
+            <span class="badge">📚 Sage</span>
+            <span class="badge">🎨 Artist</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h2>The Problem</h2>
+            <p>{{PROBLEM_TEXT}}</p>
+        </div>
+        
+        <div class="section">
+            <h2>Our Solution</h2>
+            <p>{{SOLUTION_TEXT}}</p>
+        </div>
+        
+        <div class="section">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h4>{{FEATURE_1_TITLE}}</h4>
+                    <p>{{FEATURE_1_DESC}}</p>
+                </div>
+                <div class="feature-card">
+                    <h4>{{FEATURE_2_TITLE}}</h4>
+                    <p>{{FEATURE_2_DESC}}</p>
+                </div>
+                <div class="feature-card">
+                    <h4>{{FEATURE_3_TITLE}}</h4>
+                    <p>{{FEATURE_3_DESC}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cta-section">
+        <h2>{{CTA_HEADLINE}}</h2>
+        <p style="margin-bottom: 2rem; color: #666;">{{CTA_SUBTEXT}}</p>
+        <a href="#" class="cta-button">{{CTA_BUTTON_TEXT}}</a>
+    </div>
+    
+    <footer>
+        <p>Crafted by the Improvisation Theater 🎭</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Five archetypes. One vision.</p>
+    </footer>
+</body>
+</html>
