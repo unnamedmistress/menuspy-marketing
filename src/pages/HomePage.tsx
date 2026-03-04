@@ -1,7 +1,7 @@
-import { useEffect, useState, useCallback } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { Plus, FileText, Clock, ChevronRight, Zap, Droplet, Bath, Sun, SquareStack, Fence, BatteryCharging, Car, MoreVertical, Trash2, Edit3, House, Wrench, Plug } from "lucide-react";
+import { Plus, FileText, Clock, ChevronRight, Zap, Droplet, Bath, Sun, SquareStack, Fence, BatteryCharging, Car, MoreVertical, Trash2, Edit3 } from "lucide-react";
 import PageWrapper from "@/components/layout/PageWrapper";
 import ConfirmDialog from "@/components/shared/ConfirmDialog";
 import { useJob } from "@/hooks/useJob";
@@ -87,51 +87,22 @@ export default function HomePage() {
 
   return (
     <PageWrapper>
+      {/* Gradient Header */}
       <header className="bg-gradient-to-br from-primary via-primary to-blue-700 px-4 pt-4 pb-8 safe-area-inset-top">
-        <h1 className="text-2xl font-bold text-primary-foreground leading-tight max-w-xl">
-          Get Your Permit - We'll Help You Every Step
+        <h1 className="text-xl font-bold text-primary-foreground">
+          AI Permit Assistant
         </h1>
-        <p className="text-sm text-primary-foreground/85 mt-1 max-w-lg">
-          Simple steps. Clear checklist. No permit jargon.
+        <p className="text-xs text-primary-foreground/80 mt-0.5">
+          Document permit requirements with AI
         </p>
       </header>
 
+      {/* Content */}
       <div className="px-3 -mt-4">
-        <section className="mb-4 rounded-xl border border-border bg-card p-4 shadow-md">
-          <h2 className="text-sm font-semibold mb-3">Common Job Types</h2>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            <div className="rounded-lg border bg-orange-50 p-2 text-center">
-              <House className="h-5 w-5 text-orange-700 mx-auto mb-1" />
-              <p className="text-xs font-medium">Roof</p>
-            </div>
-            <div className="rounded-lg border bg-blue-50 p-2 text-center">
-              <Droplet className="h-5 w-5 text-blue-700 mx-auto mb-1" />
-              <p className="text-xs font-medium">Water Heater</p>
-            </div>
-            <div className="rounded-lg border bg-yellow-50 p-2 text-center">
-              <Plug className="h-5 w-5 text-yellow-700 mx-auto mb-1" />
-              <p className="text-xs font-medium">Electrical</p>
-            </div>
-            <div className="rounded-lg border bg-emerald-50 p-2 text-center">
-              <Wrench className="h-5 w-5 text-emerald-700 mx-auto mb-1" />
-              <p className="text-xs font-medium">Plumbing</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-4 rounded-xl border border-primary/20 bg-primary/5 p-4">
-          <h2 className="text-sm font-semibold mb-2">What You'll Need</h2>
-          <ul className="space-y-1.5 text-sm">
-            <li>📄 Your property address</li>
-            <li>💼 Your contractor information</li>
-            <li>💰 A description of the work (we'll help translate it)</li>
-            <li>✅ That's it! We'll tell you everything else.</li>
-          </ul>
-        </section>
-
-        <Link
-          to="/new"
-          className="w-full bg-card rounded-xl p-3 shadow-md border border-border flex items-center gap-3 mb-4 hover:shadow-lg transition-shadow active:scale-[0.98] cursor-pointer block min-h-[56px]"
+        {/* New Job Card - Compact */}
+        <button
+          onClick={() => navigate("/new")}
+          className="w-full bg-card rounded-xl p-3 shadow-md border border-border flex items-center gap-3 mb-4 hover:shadow-lg transition-shadow active:scale-[0.98]"
         >
           <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
             <Plus size={20} className="text-primary-foreground" />
@@ -143,7 +114,7 @@ export default function HomePage() {
             </p>
           </div>
           <ChevronRight size={18} className="text-muted-foreground" />
-        </Link>
+        </button>
 
         {/* Recent Jobs */}
         <div className="mb-3 flex items-center justify-between">
