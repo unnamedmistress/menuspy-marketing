@@ -188,10 +188,25 @@ export default function SmartWizard({
       {createState === 'failed' && createError && (
         <div className="mb-6 rounded-xl border border-red-300 bg-red-50 p-4">
           <div className="flex items-start gap-3">
-            <AlertCircle className="mt-0.5 h-5 w-5 text-red-600" />
-            <div className="flex-1">
-              <p className="font-semibold text-red-700">We could not open your checklist.</p>
-              <p className="mt-1 text-sm text-red-700">{createError}</p>
+            <AlertCircle className="mt-0.5 h-5 w-5 text-red-600 shrink-0" />
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-red-700">We could not create your job</p>
+              <p className="mt-1 text-sm text-red-700 break-words">{createError}</p>
+              {createError?.includes('localStorage') && (
+                <p className="mt-2 text-xs text-red-600">
+                  Try clearing your browser data or using a different browser.
+                </p>
+              )}
+              {createError?.includes('Authentication') && (
+                <p className="mt-2 text-xs text-red-600">
+                  Please sign out and sign back in to refresh your session.
+                </p>
+              )}
+              {createError?.includes('internet') && (
+                <p className="mt-2 text-xs text-red-600">
+                  Check your internet connection and try again.
+                </p>
+              )}
             </div>
             <Button variant="outline" size="sm" onClick={onRetryCreate}>
               Retry
