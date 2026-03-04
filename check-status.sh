@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "=== PermitPath Build Status ==="
+echo "Time: $(date)"
+echo ""
+echo "Current Git Log (last 3):"
+cd /home/node/.openclaw/workspace/permitpath-simple 2>/dev/null && git log --oneline -3 2>/dev/null || echo "No git changes yet"
+echo ""
+echo "Build Status:"
+ls -la /home/node/.openclaw/workspace/permitpath-simple/dist/ 2>/dev/null | head -5 || echo "No build yet"
+echo ""
+echo "Last 10 lines of progress log:"
+tail -10 /home/node/.openclaw/workspace/permitpath-build-progress.log 2>/dev/null || echo "No progress log yet"
