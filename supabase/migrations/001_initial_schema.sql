@@ -1,9 +1,6 @@
 -- Initial PermitPath Database Schema
 -- Run this in Supabase SQL Editor
 
--- Enable UUID extension
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 -- Profiles table (extends auth.users)
 CREATE TABLE profiles (
   id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
@@ -18,7 +15,7 @@ CREATE TABLE profiles (
 
 -- Jobs table
 CREATE TABLE jobs (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID REFERENCES profiles(id) ON DELETE SET NULL,
   job_type TEXT NOT NULL,
   title TEXT NOT NULL,
@@ -40,7 +37,7 @@ CREATE TABLE jobs (
 
 -- Requirements table
 CREATE TABLE requirements (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   job_id UUID REFERENCES jobs(id) ON DELETE CASCADE NOT NULL,
   category TEXT NOT NULL,
   title TEXT NOT NULL,
@@ -61,7 +58,7 @@ CREATE TABLE requirements (
 
 -- Documents table
 CREATE TABLE documents (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
   job_id UUID REFERENCES jobs(id) ON DELETE CASCADE,
   requirement_id UUID REFERENCES requirements(id) ON DELETE SET NULL,
