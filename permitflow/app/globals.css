@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f3f6fb;
+  --ink: #111827;
+  --card: #ffffff;
+  --line: #dbe4f1;
+  --brand: #0f5bd3;
+  --brand-2: #1c86f2;
+  --accent: #ff9d42;
+  --ok: #0f9d77;
+  --warn: #c27a00;
+  --bad: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: radial-gradient(1200px 500px at 90% -20%, #cae5ff 0%, transparent 60%),
+    radial-gradient(800px 500px at -20% 10%, #e5f4ee 0%, transparent 55%),
+    var(--bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Permit {
+  id            String       @id @default(cuid())
+  title         String
+  description   String
+  type          PermitType
+  status        PermitStatus @default(DRAFT)
+  estimatedDays Int
+  estimatedCost Int?
+  squareFootage Int?
+  jurisdiction  String
+  submittedAt   DateTime?
+  approvedAt    DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([type, status])
+}
+
+model Prediction {
+  id            String           @id @default(cuid())
+  permitType    PermitType
+  confidence    Int
+  triggerType   String
+  requiredDocs  String
+  estimatedDays Int
+  rationale     String
+  status        PredictionStatus @default(PENDING)
+  createdAt     DateTime         @default(now())
+
+  @@index([permitType, createdAt])
+}
+
+model HistoricalPermit {
+  id              String     @id @default(cuid())
+  permitType      PermitType
+  location        String
+  squareFootage   Int?
+  complexity      Int
+  daysToApproval  Int
+  submissionMonth Int
+  createdAt       DateTime   @default(now())
+
+  @@index([permitType, location])
+}
+
+enum PermitType {
+  BUILDING
+  ELECTRICAL
+  PLUMBING
+  HVAC
+  FENCE
+  DECK
+  RENOVATION
+  ADDITION
+}
+
+enum PermitStatus {
+  DRAFT
+  SUBMITTED
+  REVIEWING
+  REVISIONS
+  APPROVED
+  REJECTED
+}
+
+enum PredictionStatus {
+  PENDING
+  ACCEPTED
+  DISMISSED
+  EXPIRED
+}
