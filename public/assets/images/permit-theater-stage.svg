@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="stage-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow-amber" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FEF3C7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FEF3C7;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glow-green" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D1FAE5;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#D1FAE5;stop-opacity:0" />
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0F172A"/>
+  
+  <!-- Stage rings -->
+  <g transform="translate(400, 250)">
+    <!-- Outer ring (completed) -->
+    <circle cx="0" cy="0" r="180" fill="none" stroke="#10B981" stroke-width="3" opacity="0.3"/>
+    <circle cx="0" cy="0" r="180" fill="none" stroke="#10B981" stroke-width="3" 
+            stroke-dasharray="283 283" stroke-dashoffset="0" opacity="0.8"/>
+    
+    <!-- Middle ring (active) -->
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#F59E0B" stroke-width="4" opacity="0.4"/>
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#F59E0B" stroke-width="4" 
+            stroke-dasharray="204 612" stroke-dashoffset="0" opacity="1"/>
+    
+    <!-- Inner ring (upcoming) -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#64748B" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Center glow -->
+    <circle cx="0" cy="0" r="120" fill="url(#glow-amber)" opacity="0.2"/>
+    
+    <!-- Permit document in center -->
+    <g transform="translate(-35, -45)">
+      <rect x="0" y="0" width="70" height="90" rx="6" fill="#1E293B" stroke="#F59E0B" stroke-width="2"/>
+      <line x1="10" y1="20" x2="60" y2="20" stroke="#475569" stroke-width="2"/>
+      <line x1="10" y1="32" x2="50" y2="32" stroke="#334155" stroke-width="2"/>
+      <line x1="10" y1="42" x2="55" y2="42" stroke="#334155" stroke-width="2"/>
+      <line x1="10" y1="52" x2="40" y2="52" stroke="#334155" stroke-width="2"/>
+      <!-- Active indicator -->
+      <circle cx="55" cy="75" r="8" fill="#F59E0B"/>
+      <path d="M51 75 L54 78 L59 72" stroke="#0F172A" stroke-width="2" fill="none"/>
+    </g>
+  </g>
+  
+  <!-- Stage labels -->
+  <g font-family="Inter, sans-serif" font-size="12">
+    <!-- Submitted -->
+    <g transform="translate(580, 250)">
+      <circle cx="0" cy="0" r="20" fill="#10B981" opacity="0.2"/>
+      <circle cx="0" cy="0" r="8" fill="#10B981"/>
+      <text x="0" y="35" text-anchor="middle" fill="#10B981" font-weight="600">SUBMITTED</text>
+      <text x="0" y="52" text-anchor="middle" fill="#64748B" font-size="10">2 days ago</text>
+    </g>
+    
+    <!-- Under Review (active) -->
+    <g transform="translate(400, 420)">
+      <circle cx="0" cy="0" r="24" fill="#F59E0B" opacity="0.2"/>
+      <circle cx="0" cy="0" r="10" fill="#F59E0B"/>
+      <text x="0" y="40" text-anchor="middle" fill="#F59E0B" font-weight="600">UNDER REVIEW</text>
+      <text x="0" y="56" text-anchor="middle" fill="#64748B" font-size="10">Day 3 of ~7</text>
+    </g>
+    
+    <!-- Approval -->
+    <g transform="translate(220, 250)">
+      <circle cx="0" cy="0" r="20" fill="#64748B" opacity="0.2"/>
+      <circle cx="0" cy="0" r="8" fill="#64748B"/>
+      <text x="0" y="35" text-anchor="middle" fill="#64748B" font-weight="600">APPROVAL</text>
+      <text x="0" y="52" text-anchor="middle" fill="#64748B" font-size="10">Est. 4 days</text>
+    </g>
+  </g>
+  
+  <!-- Floating documents -->
+  <g transform="translate(150, 150)" opacity="0.6">
+    <rect x="0" y="0" width="40" height="50" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <line x1="6" y1="12" x2="34" y2="12" stroke="#475569" stroke-width="2"/>
+    <line x1="6" y1="20" x2="28" y2="20" stroke="#334155" stroke-width="1"/>
+    <line x1="6" y1="26" x2="30" y2="26" stroke="#334155" stroke-width="1"/>
+  </g>
+  
+  <g transform="translate(610, 120)" opacity="0.5">
+    <rect x="0" y="0" width="35" height="45" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <circle cx="17" cy="32" r="8" fill="none" stroke="#10B981" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Timeline bar at bottom -->
+  <g transform="translate(100, 460)">
+    <rect x="0" y="0" width="600" height="8" rx="4" fill="#1E293B"/>
+    <rect x="0" y="0" width="240" height="8" rx="4" fill="#10B981"/>
+    <rect x="240" y="0" width="165" height="8" rx="0" fill="#F59E0B"/>
+    <!-- Progress marker -->
+    <circle cx="405" cy="4" r="6" fill="#F59E0B" stroke="#0F172A" stroke-width="2"/>
+  </g>
+</svg>

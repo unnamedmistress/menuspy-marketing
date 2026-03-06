@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="success-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34D399;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="success-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D1FAE5;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#D1FAE5;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="500" fill="#F8FAFC"/>
+  
+  <!-- Center celebration -->
+  <g transform="translate(300, 250)">
+    <!-- Glow -->
+    <circle cx="0" cy="0" r="120" fill="url(#success-glow)" opacity="0.5"/>
+    
+    <!-- Success badge -->
+    <circle cx="0" cy="0" r="60" fill="url(#success-gradient)"/>
+    <circle cx="0" cy="0" r="45" fill="white" opacity="0.2"/>
+    
+    <!-- Checkmark -->
+    <path d="M-20 5 L-5 20 L25 -15" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Star burst -->
+    <g fill="#FBBF24">
+      <polygon points="0,-90 4,-80 0,-70 -4,-80"/>
+      <polygon points="63,-63 67,-53 63,-43 59,-53"/>
+      <polygon points="90,0 80,4 70,0 80,-4"/>
+      <polygon points="63,63 59,53 63,43 67,53"/>
+      <polygon points="0,90 -4,80 0,70 4,80"/>
+      <polygon points="-63,63 -67,53 -63,43 -59,53"/>
+      <polygon points="-90,0 -80,4 -70,0 -80,-4"/>
+      <polygon points="-63,-63 -59,-53 -63,-43 -67,-53"/>
+    </g>
+  </g>
+  
+  <!-- Confetti pieces -->
+  <g fill="#10B981">
+    <rect x="100" y="80" width="12" height="12" rx="2" transform="rotate(15 106 86)"/>
+    <rect x="480" y="120" width="10" height="10" rx="2" transform="rotate(-20 485 125)"/>
+    <rect x="520" y="280" width="14" height="14" rx="2" transform="rotate(30 527 287)"/>
+    <rect x="80" y="300" width="10" height="10" rx="2" transform="rotate(-10 85 305)"/>
+  </g>
+  
+  <g fill="#FBBF24">
+    <rect x="140" y="140" width="8" height="8" rx="2" transform="rotate(25 144 144)"/>
+    <rect x="450" y="180" width="12" height="12" rx="2" transform="rotate(-15 456 186)"/>
+    <rect x="500" y="360" width="10" height="10" rx="2" transform="rotate(40 505 365)"/>
+    <rect x="120" y="380" width="12" height="12" rx="2" transform="rotate(-30 126 386)"/>
+  </g>
+  
+  <g fill="#8B5CF6" opacity="0.7">
+    <rect x="180" y="60" width="10" height="10" rx="2" transform="rotate(45 185 65)"/>
+    <rect x="420" y="240" width="8" height="8" rx="2" transform="rotate(-35 424 244)"/>
+    <rect x="60" y="200" width="12" height="12" rx="2" transform="rotate(20 66 206)"/>
+  </g>
+  
+  <!-- Permit document with stamp -->
+  <g transform="translate(230, 360)">
+    <rect x="0" y="0" width="100" height="120" rx="8" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="15" y1="25" x2="85" y2="25" stroke="#CBD5E1" stroke-width="3"/>
+    <line x1="15" y1="40" x2="70" y2="40" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="15" y1="52" x2="80" y2="52" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="15" y1="64" x2="60" y2="64" stroke="#E2E8F0" stroke-width="2"/>
+    
+    <!-- Approved stamp -->
+    <g transform="translate(45, 80)">
+      <circle cx="0" cy="0" r="28" fill="none" stroke="#10B981" stroke-width="3"/>
+      <circle cx="0" cy="0" r="21" fill="none" stroke="#10B981" stroke-width="1"/>
+      <text x="0" y="6" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#10B981" transform="rotate(-15)">APPROVED</text>
+    </g>
+  </g>
+  
+  <!-- Stats cards -->
+  <g transform="translate(100, 150)">
+    <rect x="0" y="0" width="100" height="60" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="12" y="25" font-family="Inter, sans-serif" font-size="10" fill="#64748B">Days to Approval</text>
+    <text x="12" y="48" font-family="JetBrains Mono, monospace" font-size="20" font-weight="bold" fill="#10B981">14</text>
+  </g>
+  
+  <g transform="translate(400, 320)">
+    <rect x="0" y="0" width="110" height="60" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="12" y="25" font-family="Inter, sans-serif" font-size="10" fill="#64748B">Faster than avg</text>
+    <text x="12" y="48" font-family="JetBrains Mono, monospace" font-size="18" font-weight="bold" fill="#10B981">3 days</text>
+  </g>
+</svg>

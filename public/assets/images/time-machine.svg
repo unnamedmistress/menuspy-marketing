@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <defs>
+    <linearGradient id="timeline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3394FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bar-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3394FF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3394FF;stop-opacity:0.4" />
+    </linearGradient>
+    <filter id="chart-glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="500" fill="#F8FAFC"/>
+  
+  <!-- Title area -->
+  <text x="350" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#1E293B">Time Machine Analytics</text>
+  <text x="350" y="75" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#64748B">Comparing your permit journey to similar projects</text>
+  
+  <!-- Main chart area -->
+  <g transform="translate(80, 120)">
+    <!-- Y-axis labels -->
+    <text x="-10" y="20" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">28 days</text>
+    <text x="-10" y="80" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">21 days</text>
+    <text x="-10" y="140" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">14 days</text>
+    <text x="-10" y="200" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">7 days</text>
+    <text x="-10" y="250" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">0</text>
+    
+    <!-- Grid lines -->
+    <line x1="0" y1="20" x2="540" y2="20" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="0" y1="80" x2="540" y2="80" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="0" y1="140" x2="540" y2="140" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="0" y1="200" x2="540" y2="200" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="0" y1="250" x2="540" y2="250" stroke="#E2E8F0" stroke-width="1"/>
+    
+    <!-- Average timeline line -->
+    <path d="M0 80 Q135 60 270 100 T540 120" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+    <text x="400" y="75" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">Average</text>
+    
+    <!-- User's permit (highlighted) -->
+    <g transform="translate(270, 160)">
+      <!-- Your position marker -->
+      <circle cx="0" cy="0" r="35" fill="#3394FF" opacity="0.2"/>
+      <circle cx="0" cy="0" r="20" fill="#3394FF" filter="url(#chart-glow)"/>
+      <text x="0" y="5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="bold" fill="white">YOU</text>
+      
+      <!-- Current stage label -->
+      <rect x="25" y="-15" width="80" height="30" rx="6" fill="#FEF3C7"/>
+      <text x="65" y="5" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#D97706">Day 8 of 14</text>
+      
+      <!-- Percentile badge -->
+      <rect x="-60" y="35" width="70" height="24" rx="6" fill="#ECFDF5"/>
+      <text x="-25" y="51" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#059669">Faster than 73%</text>
+    </g>
+    
+    <!-- Similar permits dots -->
+    <g fill="#CBD5E1">
+      <circle cx="40" cy="100" r="4"/>
+      <circle cx="80" cy="130" r="4"/>
+      <circle cx="120" cy="90" r="4"/>
+      <circle cx="160" cy="140" r="4"/>
+      <circle cx="200" cy="110" r="4"/>
+      <circle cx="360" cy="120" r="4"/>
+      <circle cx="400" cy="100" r="4"/>
+      <circle cx="440" cy="135" r="4"/>
+      <circle cx="480" cy="115" r="4"/>
+      <circle cx="520" cy="140" r="4"/>
+    </g>
+    
+    <!-- X-axis -->
+    <line x1="0" y1="250" x2="540" y2="250" stroke="#94A3B8" stroke-width="1"/>
+    
+    <!-- X-axis labels -->
+    <text x="0" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Submitted</text>
+    <text x="135" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Review</text>
+    <text x="270" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Inspection</text>
+    <text x="405" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Approval</text>
+    <text x="540" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Complete</text>
+  </g>
+  
+  <!-- Insights cards at bottom -->
+  <g transform="translate(80, 420)">
+    <!-- Insight 1 -->
+    <rect x="0" y="0" width="160" height="60" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="12" y="22" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Similar permits</text>
+    <text x="12" y="42" font-family="JetBrains Mono, monospace" font-size="18" font-weight="bold" fill="#1E293B">124</text>
+    <text x="50" y="42" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">projects</text>
+    
+    <!-- Insight 2 -->
+    <rect x="180" y="0" width="160" height="60" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="192" y="22" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Your timeline</text>
+    <text x="192" y="42" font-family="JetBrains Mono, monospace" font-size="18" font-weight="bold" fill="#10B981">14 days</text>
+    <text x="275" y="42" font-family="Inter, sans-serif" font-size="11" fill="#10B981">est.</text>
+    
+    <!-- Insight 3 -->
+    <rect x="360" y="0" width="160" height="60" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="372" y="22" font-family="Inter, sans-serif" font-size="11" fill="#64748B">Time saved</text>
+    <text x="372" y="42" font-family="JetBrains Mono, monospace" font-size="18" font-weight="bold" fill="#8B5CF6">3.5 days</text>
+    <text x="455" y="42" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">vs avg</text>
+  </g>
+</svg>
