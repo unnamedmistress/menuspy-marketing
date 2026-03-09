@@ -1,7 +1,6 @@
-import type { Metadata } from 'next';
 import './globals.css';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'PermitFlow Demo',
   description: 'Public no-auth sandbox for permit prediction, chat, theater, and analytics.',
 };
