@@ -1,0 +1,220 @@
+pipelines:
+  fullstack-autodev-qa:
+    description: >
+      Multi-agent app delivery pipeline for Next.js + Tailwind CSS + shadcn/ui.
+      Starts with repo inspection, synthesizes design and system direction,
+      implements with discipline, runs bounded QA loops, then finishes with an
+      adversarial polish review and explicit residual-risk reporting.
+    steps:
+
+      - id: phase-1-inspection
+        parallel:
+          - id: repo-inspection
+            agent: application-developer
+            input: $user_prompt
+            output: repo_findings
+            instruction: >
+              Inspect the repository before proposing edits. Identify the app
+              structure, routing model, component architecture, Tailwind setup,
+              shadcn/ui usage, relevant scripts, validation commands, and any
+              constraints from the existing code. Do not edit yet. Output a
+              concise findings report.
+
+          - id: ui-opportunity-scan
+            agent: ui-design-lead
+            input: $user_prompt
+            output: ui_findings
+            instruction: >
+              Review the request from a mobile-first product UI perspective.
+              Identify likely friction points, hierarchy problems, spacing
+              issues, weak states, and opportunities for visual polish.
+
+      - id: phase-1-synthesis
+        agent: orchestrator
+        input: >
+          user_request=$user_prompt
+          repo_findings={{repo_findings}}
+          ui_findings={{ui_findings}}
+        output: problem_frame
+        instruction: >
+          Merge the repository findings and UI opportunity scan into one clear
+          problem frame. Confirm scope, constraints, likely risks, and what the
+          team should optimize for. Reject any attempt to start implementation
+          before the repository and constraints are understood.
+
+      - id: phase-2-design-direction
+        parallel:
+          - id: visual-direction
+            agent: ui-design-lead
+            input: >
+              problem_frame={{problem_frame}}
+            output: visual_direction
+            instruction: >
+              Define the visual direction for this task: hierarchy, spacing,
+              density, color usage, typography feel, and mobile-first layout
+              behavior. Make it specific enough to guide implementation.
+
+          - id: system-direction
+            agent: design-systems-architect
+            input: >
+              problem_frame={{problem_frame}}
+            output: system_direction
+            instruction: >
+              Define the component, token, and composition implications of this
+              task. Clarify whether to reuse, extend, or refine the current
+              design system and how to keep the result scalable.
+
+          - id: process-direction
+            agent: systems-process-lead
+            input: >
+              problem_frame={{problem_frame}}
+            output: process_direction
+            instruction: >
+              Define the implementation discipline needed for this task:
+              boundaries to preserve, engineering survivability concerns,
+              rollout implications, and documentation or consistency risks.
+
+          - id: interaction-direction
+            agent: design-engineer
+            input: >
+              problem_frame={{problem_frame}}
+            output: interaction_direction
+            instruction: >
+              Define interaction, motion, and frontend craft guidance. Favor
+              restrained, meaningful motion and implementation realism.
+
+          - id: delight-direction
+            agent: brand-delight-lead
+            input: >
+              problem_frame={{problem_frame}}
+            output: delight_direction
+            instruction: >
+              Define what gives this product surface identity and charm without
+              undermining clarity or usability. Avoid gimmicks.
+
+      - id: phase-2-synthesis
+        agent: orchestrator
+        input: >
+          problem_frame={{problem_frame}}
+          visual_direction={{visual_direction}}
+          system_direction={{system_direction}}
+          process_direction={{process_direction}}
+          interaction_direction={{interaction_direction}}
+          delight_direction={{delight_direction}}
+        output: approved_direction
+        instruction: >
+          Merge the design and system directions into one approved direction.
+          Resolve conflicts, keep the scope realistic, and define the quality
+          bar for implementation and QA.
+
+      - id: phase-3-plan
+        agent: application-developer
+        input: >
+          approved_direction={{approved_direction}}
+          repo_findings={{repo_findings}}
+        output: implementation_plan
+        instruction: >
+          Produce a concise implementation plan before editing. Include target
+          files, intended changes, validation commands, and any known unknowns.
+          Keep it short, concrete, and repo-specific.
+
+      - id: phase-3-gate
+        agent: orchestrator
+        input: >
+          approved_direction={{approved_direction}}
+          implementation_plan={{implementation_plan}}
+        output: approved_plan
+        instruction: >
+          Gate the implementation plan. Approve only if the plan is concise,
+          respects repo constraints, and includes a real validation path.
+
+      - id: phase-4-implementation
+        agent: application-developer
+        input: >
+          approved_plan={{approved_plan}}
+          approved_direction={{approved_direction}}
+          repo_findings={{repo_findings}}
+        output: implementation_result
+        instruction: >
+          Implement the task with minimal, production-disciplined edits.
+          Preserve backend contracts unless the user explicitly asked to change
+          them. Prefer existing components and patterns where sensible, but do
+          not preserve weak mobile or accessibility behavior just because it is
+          already present.
+
+      - id: phase-5-qa-loop
+        loop:
+          max_iterations: 3
+          until_condition: "qa_passed == true"
+          steps:
+            - id: qa-review
+              agent: qa-engineer
+              input: >
+                implementation_result={{implementation_result}}
+                approved_direction={{approved_direction}}
+                approved_plan={{approved_plan}}
+              output: qa_report
+              instruction: >
+                Run real QA where possible. Check responsiveness, accessibility,
+                consistency of states, and obvious runtime issues. If validation
+                cannot be completed, say exactly what blocked it and assign risk.
+
+            - id: qa-fix
+              agent: application-developer
+              input: >
+                implementation_result={{implementation_result}}
+                qa_report={{qa_report}}
+              output: qa_fix_result
+              instruction: >
+                If QA failed or found important gaps, fix them precisely. If QA
+                passed, summarize that no corrective edits were needed.
+
+            - id: qa-gate
+              agent: orchestrator
+              input: >
+                qa_report={{qa_report}}
+                qa_fix_result={{qa_fix_result}}
+              output: qa_gate_decision
+              instruction: >
+                Decide whether the team can exit the QA loop. Only exit if the
+                quality bar is met or if the remaining issues are explicitly
+                documented as unresolved risks.
+
+      - id: phase-6-critique
+        agent: critic
+        input: >
+          approved_direction={{approved_direction}}
+          implementation_result={{implementation_result}}
+          qa_report={{qa_report}}
+        output: critique_report
+        instruction: >
+          Challenge the result from a product quality perspective: polish,
+          coherence, state design, friction, visual consistency, and whether the
+          experience feels intentionally designed rather than merely functional.
+
+      - id: phase-6-critique-gate
+        agent: orchestrator
+        input: >
+          critique_report={{critique_report}}
+          qa_report={{qa_report}}
+        output: critique_decision
+        instruction: >
+          Decide whether critique findings require another bounded refinement
+          pass or can be reported as residual risk. Do not reopen work for minor
+          nitpicks unless they materially affect quality.
+
+      - id: phase-7-delivery
+        agent: orchestrator
+        input: >
+          problem_frame={{problem_frame}}
+          approved_direction={{approved_direction}}
+          approved_plan={{approved_plan}}
+          implementation_result={{implementation_result}}
+          qa_report={{qa_report}}
+          critique_report={{critique_report}}
+          critique_decision={{critique_decision}}
+        output: final_delivery
+        instruction: >
+          Produce the final delivery summary. Include: repository findings,
+          concise plan, what changed, what was validated, what could not be
+          validated, and residual risks. Be direct and honest.

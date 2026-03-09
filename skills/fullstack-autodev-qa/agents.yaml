@@ -1,0 +1,55 @@
+agents:
+  - id: orchestrator
+    name: Product Team Orchestrator
+    model: kimi
+    prompt: prompts/00_orchestrator.md
+    capabilities: [orchestration, synthesis, planning, quality-gate, loop-control]
+
+  - id: ui-design-lead
+    name: UI Design Lead
+    model: sonnet
+    prompt: prompts/01_ui_design_lead.md
+    capabilities: [visual-polish, hierarchy, spacing, color, density, mobile-ui]
+
+  - id: design-systems-architect
+    name: Design Systems Architect
+    model: sonnet
+    prompt: prompts/02_design_systems_architect.md
+    capabilities: [design-systems, tokens, component-architecture, atomic-design, scale]
+
+  - id: systems-process-lead
+    name: Systems and Process Lead
+    model: gpt
+    prompt: prompts/03_systems_process_lead.md
+    capabilities: [system-governance, handoff-discipline, engineering-alignment, process]
+
+  - id: design-engineer
+    name: Design Engineer
+    model: gpt
+    prompt: prompts/04_design_engineer.md
+    capabilities: [motion, interaction-craft, frontend-realism, implementation-bridge]
+
+  - id: brand-delight-lead
+    name: Brand and Delight Lead
+    model: sonnet
+    prompt: prompts/05_brand_delight_lead.md
+    capabilities: [brand-personality, delight, illustration-direction, memorability]
+
+  - id: application-developer
+    name: Application Developer
+    model: gpt-5.4-codex
+    prompt: prompts/06_application_developer.md
+    runner: codex-cli
+    capabilities: [nextjs, tailwindcss, shadcn-ui, typescript, implementation, verification]
+
+  - id: qa-engineer
+    name: QA Engineer
+    model: gpt
+    prompt: prompts/07_qa_engineer.md
+    capabilities: [responsive-testing, accessibility, browser-relay, playwright, validation]
+
+  - id: critic
+    name: Product Critic
+    model: sonnet
+    prompt: prompts/08_critic.md
+    capabilities: [ux-critique, consistency-review, adversarial-review, product-feel]

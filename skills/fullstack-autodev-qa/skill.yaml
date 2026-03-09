@@ -1,0 +1,105 @@
+name: fullstack-autodev-qa
+version: 1.0.0
+type: orchestrator
+category: web-development
+description: >
+  Autonomous multi-agent product team for visually polished, mobile-first,
+  frictionless web app work in Next.js + Tailwind CSS + shadcn/ui. Enforces
+  repo inspection, concise planning, disciplined implementation, QA loops,
+  accessibility checks, responsive review, and residual-risk reporting.
+author: Molt
+license: MIT
+maintained_by: molt
+
+trigger_phrases:
+  - "fullstack autodev qa"
+  - "use the fullstack-autodev-qa skill"
+  - "autonomous app team"
+  - "mobile-first app refinement"
+  - "nextjs tailwind shadcn"
+  - "autonomous product team"
+  - "refine this app for mobile"
+  - "improve accessibility and responsiveness"
+
+workflow:
+  auto_proceed: true
+  hard_stop_round: 4
+  max_qa_iterations: 3
+  max_refinement_loops: 2
+  phases:
+    - repo_inspection
+    - design_direction
+    - implementation_plan
+    - implementation
+    - qa_loop
+    - adversarial_review
+    - delivery_summary
+
+stack:
+  framework: nextjs
+  styling: tailwindcss
+  component_system: shadcn-ui
+  emphasis:
+    - mobile-first
+    - accessibility
+    - responsiveness
+    - visual-polish
+    - state-consistency
+
+requirements:
+  tools:
+    - shell
+    - github
+    - browser
+    - codex-cli
+  optional_tools:
+    - web_search
+  env: []
+  optional_env:
+    - OPENAI_API_KEY
+    - GITHUB_TOKEN
+  models:
+    - openrouter/moonshotai/kimi-k2.5
+    - openai/gpt-5.4-codex
+    - openai/gpt-4o
+    - anthropic/claude-sonnet-4-5
+
+browser_qa:
+  primary:
+    method: relay
+    profile: chrome
+  fallback_1:
+    method: playwright
+    install_cmd: "npx playwright install chromium"
+  viewports:
+    - name: "Mobile Small"
+      width: 375
+      height: 667
+    - name: "Mobile Standard"
+      width: 390
+      height: 844
+    - name: "Tablet"
+      width: 768
+      height: 1024
+    - name: "Desktop"
+      width: 1440
+      height: 900
+
+quality_bar:
+  requires_repo_inspection: true
+  requires_plan_before_edit: true
+  requires_real_qa: true
+  requires_mobile_review: true
+  requires_accessibility_review: true
+  requires_risk_summary: true
+
+coding_execution:
+  primary:
+    tool: codex-cli
+    model: openai/gpt-5.4-codex
+    agents:
+      - application-developer
+  fallback:
+    tool: shell
+    allowed: true
+    note: Use shell only if Codex CLI is unavailable in the environment.
